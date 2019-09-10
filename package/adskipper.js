@@ -8,10 +8,7 @@
 		}
 
 		skip () {
-			[...document.getElementsByClassName(this._className)].map(elem => {
-				elem.click();
-				console.log('skip')
-			});
+			[...document.getElementsByClassName(this._className)].map(elem => elem.click());
 		}
 
 		setSkipEvent () {
@@ -24,7 +21,7 @@
 		}
 
 		_documentObserver () {
-			const observer = new MutationObserver((mutation) => this._findClassListener(mutation));
+			const observer = new MutationObserver(mutation => this._findClassListener(mutation));
 			const option = { childList: true, subtree: true };
 			observer.observe(document.body, option);
 
@@ -35,7 +32,6 @@
 			mutation.forEach(m => {
 				m.addedNodes.forEach(node => {
 					if (!node.classList) return;
-					// if (!node.classList.contains(this._className)) return;
 					this.skip();
 				});
 			});
