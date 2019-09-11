@@ -8,6 +8,6 @@ Ad skip for YoutTube
 
 ## Usage
 
-- Select extension from Chrome settings.
-- Enable developer mode.
-- Import package directory.
+1. Select extension from Chrome settings.
+1. Enable developer mode.
+1. Import dist directory.

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "es2015",
+    "target": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "inlineSourceMap": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noUnusedParameters": false,
+    "lib": ["es2019", "dom"],
+    "pretty": true,
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types", "src/types"],
+    "experimentalDecorators": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules/**"],
+  "compileOnSave": false
+}

@@ -1,0 +1,61 @@
+{
+  "name": "adskipper",
+  "version": "1.0.0",
+  "description": "Skip ads.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "run-s build test:*",
+    "test:lint": "tslint --project . -c tslint.json && prettier \"src/**/*.ts\"",
+    "test:unit": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.config.js --verbose",
+    "intergration": "NODE_ENV=test jest -c jest.config.intergration.js --verbose --forceExit",
+    "build": "npx webpack --config webpack.config.js && cp -r src/resources/icons dist && cp src/manifest.json dist",
+    "lint": "tslint --project . -c tslint.json",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:tslint": "tslint --fix --project . -c tslint.json",
+    "cov": "run-s build test cov:check",
+    "cov:check": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.config.js --verbose --coverage",
+    "version": "standard-version",
+    "reset": "git clean -dfx && git reset --hard && npm i",
+    "all": "run-s reset test cov:check",
+    "release": "run-s all version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remu1519/AdSkipper.git"
+  },
+  "author": "megutech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remu1519/AdSkipper/issues"
+  },
+  "homepage": "https://github.com/remu1519/AdSkipper#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.2",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
+    "@types/sinon": "^7.0.13",
+    "@types/typescript": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.9.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "sinon": "^7.4.2",
+    "standard-version": "^7.0.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.1.0",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-immutable": "^6.0.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {}
+}
